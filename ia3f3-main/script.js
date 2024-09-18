@@ -3,28 +3,34 @@ const caixaPerguntas = document.querySelector('.caixa-perguntas');
 const caixaAlternativas = document.querySelector('.caixa-alternativas');
 const caixaResultado = document.querySelector('.caixa-resultado');
 
-const perguntas = [ //serve para abrir lista de perguntas
+const perguntas = [//serve para abrir lista de perguntas
     {//abre o objeto das perguntas
         enunciado: " o que você acha da inteligência artificial?",
-        alternativas: ["gosto e uso frequentemnte","não gosto e nao uso"]
+        alternativas: ["gosto e uso frequentemente", "não gosto e nao uso"]
     },
     {
         enunciado: "qual inteligência artificial você gostuma usar?",
-        alternativas: ["chat gpt, gamma","outros em geral"]
+        alternativas: ["chat gpt, gamma", "outros em geral"]
     },
     {
-        enunciado: "Pergunta 3",
-        alternativas: ["Alternativa 1","Alternativa 2"]
+        enunciado: "o que você sabe sobre esse tema?",
+        alternativas: ["Bem pouco", "nada"]
     }
 ]
 
 let posicao = 0;
 let perguntaAtual;
 
-function mostraPergunta(){
+function mostraPergunta() {
     perguntaAtual = perguntas[posicao];
     caixaPerguntas.textContent = perguntaAtual.enunciado
-mostraalternativas();
+    mostraAlternativas();
 }
-function mostraalternativas()
+function mostraAlternativas() {
+    for (const alternativa of perguntaAtual.alternativas) {
+        const botaoalternativas = document.createElement("button");
+        botaoalternativas.textcontent = alternativa;
+        caixaAlternativas.appendChild(botaoalternativas);
+    }
+}
 mostraPergunta();
