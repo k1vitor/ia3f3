@@ -35,8 +35,17 @@ function mostraPergunta(){
 function mostraAlternativas(){
     for(const alternativa of perguntaAtual.alternativas){
         const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa;
-        caixaAlternativas.appendChild(botaoAlternativas);
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListenerlistener("click",function()=> respostasSelecionada(alternativa){
+            posicao++;
+            mostraPergunta();
+
+        });
+
+            }
+                caixaAlternativas.appendChild(botaoAlternativas);
+
     }
-}
+    function respostasSelecionada
+
 mostraPergunta();
